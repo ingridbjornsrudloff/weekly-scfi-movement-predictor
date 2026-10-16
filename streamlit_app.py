@@ -26,7 +26,7 @@ except Exception as e:
 st.title("📈 SCFI Weekly Market Movement Predictor")
 st.markdown("An academic and professional tool to forecast weekly Shanghai Containerized Freight Index (SCFI) trends using a Keras Slim Residual Neural Network.")
 
-st.header("Mottakerverdier (Inputs)")
+st.header("Input Variables")
 
 # Opprett to kolonner for inputfeltene
 col1, col2 = st.columns(2)
@@ -49,7 +49,7 @@ with col2:
     secondhand = st.number_input("Secondhand Index", value=75.0)
     china_port = st.number_input("China Port Calls TEU", value=9000000.0)
 
-if st.button("Kjør Prediksjon", type="primary"):
+if st.button("Generate Prediction", type="primary"):
     # Samle alle features i riktig rekkefølge
     input_data = np.array([[
         scfi, lag1, lag2, lag3, lag4, moving_average, 
@@ -67,18 +67,18 @@ if st.button("Kjør Prediksjon", type="primary"):
     classes = encoder.classes_
     predicted_class = classes[np.argmax(probs)]
     
-    st.subheader("Resultater")
+    st.subheader("Results")
     
     # Vis predikert klasse med fargeindikator
     if predicted_class == 'Up':
-        st.success(f"### Predikert Markedsbevegelse: **{predicted_class}** 📈")
+        st.success(f"### Predicted Market Movement: **{predicted_class}** 📈")
     elif predicted_class == 'Down':
-        st.error(f"### Predikert Markedsbevegelse: **{predicted_class}** 📉")
+        st.error(f"### Predicted Market Movement: **{predicted_class}** 📉")
     else:
-        st.info(f"### Predikert Markedsbevegelse: **{predicted_class}** ➡️")
+        st.info(f"### Predicted Market Movement: **{predicted_class}** ➡️")
         
     # Vis sannsynlighetsfordeling
-    st.write("**Sannsynlighet per klasse:**")
+    st.write("**Class Probabilities:**")
     for c, p in zip(classes, probs):
         st.write(f"- **{c}**: {p*100:.2f}%")
         st.progress(float(p))
