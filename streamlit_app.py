@@ -24,7 +24,7 @@ except Exception as e:
     st.error(f"Feil under lasting av filer: {e}")
 
 st.title("📈 SCFI Weekly Market Movement Predictor")
-st.markdown("An academic and professional tool to forecast weekly Shanghai Containerized Freight Index (SCFI) trends using a Keras Slim Residual Neural Network.")
+st.markdown("An academic and professional decision-support tool for predicting weekly SCFI market movements using a Keras Slim Residual Neural Network.")
 
 st.header("Input Variables")
 
