@@ -33,10 +33,10 @@ col1, col2 = st.columns(2)
 
 with col1:
     scfi = st.number_input("SCFI", value=1500.0)
-    lag1 = st.number_input("Lag 1", value=1480.0)
-    lag2 = st.number_input("Lag 2", value=1460.0)
-    lag3 = st.number_input("Lag 3", value=1440.0)
-    lag4 = st.number_input("Lag 4", value=1420.0)
+    lag1 = st.number_input("Lag 1 (SCFI value one week ago)", value=1480.0)
+    lag2 = st.number_input("Lag 2 (SCFI value two weeks ago)", value=1460.0)
+    lag3 = st.number_input("Lag 3 (SCFI value three weeks ago)", value=1440.0)
+    lag4 = st.number_input("Lag 4 (SCFI value four weeks ago)Lag 4", value=1420.0)
 
 with col2:
     timecharter = st.number_input("Timecharter Index", value=120.0)
